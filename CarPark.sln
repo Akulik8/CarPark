@@ -3,9 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{2857C0A1-C922-4463-AD68-E2FED20E95B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4AABF11C-B8A2-4FB0-B310-989844EB8754}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrstructure", "Infrstructure", "{CFD552A6-9AA0-4397-B454-9CDEA4657F11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{A8324BE7-62A0-4964-8C8D-744CD2E6B105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarParkSystem.Domain", "CarParkSystem.Domain\CarParkSystem.Domain.csproj", "{033F503B-C452-4D77-AC64-7C97D028CDBF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{033F503B-C452-4D77-AC64-7C97D028CDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033F503B-C452-4D77-AC64-7C97D028CDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033F503B-C452-4D77-AC64-7C97D028CDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033F503B-C452-4D77-AC64-7C97D028CDBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{033F503B-C452-4D77-AC64-7C97D028CDBF} = {4AABF11C-B8A2-4FB0-B310-989844EB8754}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A4845E8-A4D6-47DC-883E-D7C4F0EEB557}
