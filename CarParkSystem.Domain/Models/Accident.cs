@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Accident
     {
@@ -9,5 +9,8 @@
         public string Location { get; set; }
         public string AccidentDetails { get; set; }
         public float DamageCost { get; set; }
+
+        public Vehicle Vehicle { get; set; }
+        public Driver Driver { get; set; }
     }
 }

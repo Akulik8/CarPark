@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Alert
     {
@@ -7,5 +7,8 @@
         public string AlertType { get; set; }
         public DateTime DueDate { get; set; }
         public string Status { get; set; }
+        public bool IsRead{ get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }

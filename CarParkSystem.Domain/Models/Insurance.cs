@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Insurance
     {
@@ -9,5 +9,7 @@
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
         public float InsuranceCost { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }

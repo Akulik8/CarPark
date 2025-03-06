@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Trip
     {
@@ -11,5 +11,9 @@
         public int MileageAtStart { get; set; }
         public int MileageAtEnd { get; set; }
         public float FuelUsed { get; set; }
+
+        public Vehicle Vehicle { get; set; }
+        public Driver Driver { get; set; }
+        public Route Route { get; set; }
     }
 }

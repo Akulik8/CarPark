@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarParkSystem.Data.Models
+namespace CarParkSystem.Domain.Models
 {
     public class Document
     {
@@ -14,5 +14,7 @@ namespace CarParkSystem.Data.Models
         public DateOnly IssueDate { get; set; }
         public DateOnly ExpiryDate { get; set; }
         public string FilePath { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }

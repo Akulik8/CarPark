@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Expense
     {
@@ -8,5 +8,7 @@
         public string ExpenseType { get; set; }
         public float Amount { get; set; }
         public string Description { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }
