@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrstructure", "Infrstruct
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{A8324BE7-62A0-4964-8C8D-744CD2E6B105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarParkSystem.Domain", "CarParkSystem.Domain\CarParkSystem.Domain.csproj", "{033F503B-C452-4D77-AC64-7C97D028CDBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarParkSystem.Domain", "CarParkSystem.Domain\CarParkSystem.Domain.csproj", "{033F503B-C452-4D77-AC64-7C97D028CDBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarParkSystem.Data", "CarParkSystem.Data\CarParkSystem.Data.csproj", "{5FD89E9A-AD96-4073-AF8D-D5FB707DE0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +25,17 @@ Global
 		{033F503B-C452-4D77-AC64-7C97D028CDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{033F503B-C452-4D77-AC64-7C97D028CDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{033F503B-C452-4D77-AC64-7C97D028CDBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD89E9A-AD96-4073-AF8D-D5FB707DE0A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD89E9A-AD96-4073-AF8D-D5FB707DE0A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD89E9A-AD96-4073-AF8D-D5FB707DE0A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD89E9A-AD96-4073-AF8D-D5FB707DE0A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{033F503B-C452-4D77-AC64-7C97D028CDBF} = {4AABF11C-B8A2-4FB0-B310-989844EB8754}
+		{5FD89E9A-AD96-4073-AF8D-D5FB707DE0A4} = {CFD552A6-9AA0-4397-B454-9CDEA4657F11}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1A4845E8-A4D6-47DC-883E-D7C4F0EEB557}

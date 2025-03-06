@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class FuelRecord
     {
@@ -8,5 +8,7 @@
         public float FuelAmount { get; set; }
         public float FuelPrice { get; set; }
         public string FuelStation { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }

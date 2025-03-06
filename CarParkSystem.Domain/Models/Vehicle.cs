@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Vehicle
     {
@@ -19,5 +19,18 @@
         public double Mileage { get; set; }
         public string FuelType { get; set; }
         public string Status { get; set; }
+
+        public List<Trip> Trips { get; set; }
+        public List<FuelRecord> FuelRecords { get; set; }
+        public List<Maintenance> Maintenances { get; set; }
+        public List<Repair> Repairs { get; set; }
+        public List<Accident> Accidents { get; set; }
+        public List<Insurance> Insurances { get; set; }
+        public List<Alert> Alerts { get; set; }
+        public List<Expense> Expenses { get; set; }
+        public List<Violation> Violations { get; set; }
+        public List<Document> Documents { get; set; }
+        public List<WorkShift> WorkShifts { get; set; }
+        //public List<VehicleAssignment> Assignments { get; set; }
     }
 }

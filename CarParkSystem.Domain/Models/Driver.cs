@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Driver
     {
@@ -11,5 +11,11 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public DateOnly EmploymentDate { get; set; }
+
+        public List<Trip> Trips { get; set; }
+        public List<Accident> Accidents { get; set; }
+        public List<Violation> Violations { get; set; }
+        public List<WorkShift> WorkShifts { get; set; }
+        //public List<VehicleAssignment> Assignments { get; set; }
     }
 }

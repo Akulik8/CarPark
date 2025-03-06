@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Route
     {
@@ -8,5 +8,7 @@
         public float Distance { get; set; }
         public TimeSpan EstimatedTime { get; set; }
         public float FuelConsumption { get; set; }
+
+        public List<Trip> Trips { get; set; }
     }
 }

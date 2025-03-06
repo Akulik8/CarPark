@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Maintenance
     {
@@ -8,5 +8,7 @@
         public string ServiceType { get; set; }
         public float Cost { get; set; }
         public string ServiceCenter { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CarParkSystem.Data.Models
+﻿namespace CarParkSystem.Domain.Models
 {
     public class Violation
     {
@@ -9,5 +9,8 @@
         public string ViolationType { get; set; }
         public float FineAmount { get; set; }
         public bool Paid { get; set; }
+
+        public Driver Driver { get; set; }
+        public Vehicle Vehicle { get; set; }
     }
 }
