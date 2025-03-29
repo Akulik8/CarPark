@@ -3,6 +3,7 @@ using System;
 using CarParkSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CarParkSystem.Data.Migrations
 {
     [DbContext(typeof(CarParkSystemDbContext))]
-    partial class CarParkSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250319210725_fix_route_and_trip_configuration")]
+    partial class fix_route_and_trip_configuration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
