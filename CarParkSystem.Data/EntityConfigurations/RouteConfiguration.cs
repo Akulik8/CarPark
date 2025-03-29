@@ -18,7 +18,7 @@ namespace CarParkSystem.Data.EntityConfigurations
             builder.Property(r => r.EndPoint).IsRequired().HasMaxLength(100);
             builder.Property(r => r.Distance).IsRequired();
 
-            builder.HasMany(r => r.Trips).WithOne(t => t.Route).HasForeignKey(t => t.RouteID);
+            builder.HasOne(t => t.Trip).WithMany(r => r.Routes).HasForeignKey(t=> t.TripID);
         }
     }
 }

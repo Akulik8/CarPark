@@ -11,6 +11,7 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public DateOnly EmploymentDate { get; set; }
+        public string Status { get; set; }
 
         public List<Trip> Trips { get; set; }
         public List<Accident> Accidents { get; set; }
