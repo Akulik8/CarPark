@@ -1,0 +1,104 @@
+﻿<Window x:Class="CarParkSystem.WPF.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Автопарк - Авторизация" Height="600" Width="700"
+        WindowStartupLocation="CenterScreen"
+        Background="#2C3E50"
+        ResizeMode="CanResize"
+        Icon="C:\Users\akuli\Downloads\pngwing.com (1).png" PreviewKeyDown="Window_PreviewKeyDown">
+
+    <!-- Viewbox для масштабируемой разметки -->
+    <Viewbox Stretch="Uniform">
+        <Grid Width="700" Height="600">
+            <Border Background="White" 
+                    CornerRadius="15" 
+                    Padding="30" 
+                    Width="620" 
+                    Height="460"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="20" ShadowDepth="13" Opacity="0.4"/>
+                </Border.Effect>
+
+                <StackPanel>
+                    <TextBlock Text="Вход" 
+                               FontSize="30" 
+                               FontWeight="Bold" 
+                               Foreground="#2C3E50" 
+                               HorizontalAlignment="Center" 
+                               Margin="0,25,0,25"/>
+
+                    <TextBlock Text="Логин" FontSize="15" Foreground="#34495E" Margin="10,20,10,5"/>
+                    <TextBox x:Name="UsernameBox" Height="40" FontSize="15" FontWeight="Bold" Foreground="Black" Padding="5" Background="#ECF0F1" BorderThickness="0" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Пароль" FontSize="15" Foreground="#34495E" Margin="10,20,10,5"/>
+
+                    <!-- Обертка для PasswordBox/TextBox с глазиком внутри и ограничением ввода -->
+                    <Grid Height="40" Width="Auto" Margin="0,0,0,10" ClipToBounds="True">
+                        <!-- Поле ввода пароля (видимо) -->
+                        <TextBox x:Name="VisiblePasswordBox"
+                                 FontSize="15"
+                                 FontWeight="Bold"
+                                 Foreground="Black"
+                                 Background="#ECF0F1"
+                                 Padding="5,0,45,0"
+                                 BorderThickness="0"
+                                 HorizontalContentAlignment="Left"
+                                 VerticalContentAlignment="Center"
+                                 Visibility="Collapsed"
+                                 Width="Auto"/>
+
+                        <!-- Поле ввода пароля (скрыто) -->
+                        <PasswordBox x:Name="PasswordBox"
+                                     FontSize="15"
+                                     FontWeight="Bold"
+                                     Foreground="Black"
+                                     Background="#ECF0F1"
+                                     Padding="5,0,45,0"
+                                     BorderThickness="0"
+                                     HorizontalContentAlignment="Left"
+                                     VerticalContentAlignment="Center"
+                                     Visibility="Visible"
+                                     Width="Auto"/>
+
+                        <!-- Глазик внутри текстового поля -->
+                        <Button x:Name="TogglePasswordVisibilityBtn"
+                                Width="40"
+                                Height="40"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                Margin="0,0,0,0"
+                                Background="Transparent"
+                                BorderBrush="{x:Null}"
+                                Cursor="Hand"
+                                Click="TogglePasswordVisibilityBtn_Click">
+                            <TextBlock x:Name="EyeIcon" FontSize="16" Text="👁" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Button>
+                    </Grid>
+
+                    <Button Content="Войти" 
+                            Margin="0,30,0,10"
+                            Height="50" 
+                            Background="#2C3E50" 
+                            Foreground="White" 
+                            FontWeight="Bold" 
+                            BorderThickness="0"
+                            Cursor="Hand" Click="LoginButton_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                                        CornerRadius="10"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        BorderBrush="{TemplateBinding BorderBrush}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Window>

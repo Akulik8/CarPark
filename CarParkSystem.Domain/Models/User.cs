@@ -4,8 +4,13 @@
     {
         public Guid UserID { get; set; }
         public string Username { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
         public string PasswordHash { get; set; }
         public string Role { get; set; }
         public DateTime LastLogin { get; set; }
+        public string Status { get; set; }
+
+        public List<Bid> Bids { get; set; }
     }
 }

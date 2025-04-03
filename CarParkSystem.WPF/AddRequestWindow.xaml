@@ -1,0 +1,61 @@
+﻿<Window x:Class="CarParkSystem.WPF.AddRequestWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Автопарк - Добавление заявки" Height="900" Width="600" WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"  Background="#2C3E50"
+        Icon="C:\Users\akuli\Downloads\pngwing.com (1).png">
+
+    <Border Background="White" Padding="20" CornerRadius="10" Margin="30">
+        <StackPanel>
+            <TextBlock Text="Добавить заявку" FontSize="22" FontWeight="Bold" Margin="0,0,0,20" HorizontalAlignment="Center"  Foreground="#2C3E50" />
+
+            <Label Content="Дата выполнения"    Foreground="#2C3E50" />
+            <DatePicker x:Name="DoDatePicker" Margin="0,0,0,20" SelectedDateFormat="Short" Background="#ECF0F1" Foreground="Black" ToolTip="Дата выполнения" />
+
+            <Label Content="Груз"    Foreground="#2C3E50" />
+            <TextBox x:Name="CargoBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black" ToolTip="Груз" />
+
+            <Label Content="Вес (кг)"   Foreground="#2C3E50" />
+            <TextBox x:Name="WeightBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black" ToolTip="Вес в килограммах" />
+
+            <Label Content="Объем (м³)"   Foreground="#2C3E50" />
+            <TextBox x:Name="VolumeBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black" ToolTip="Объем в метрах кубических" />
+
+            <Label Content="Откуда"   Foreground="#2C3E50" />
+            <TextBox x:Name="FromBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black" ToolTip="Точка отправления" />
+
+            <Label Content="Куда"   Foreground="#2C3E50" />
+            <TextBox x:Name="ToBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black" ToolTip="Точка прибытия" />
+
+            <Label Content="Подразделение"   Foreground="#2C3E50" />
+            <ComboBox x:Name="SubdivisionNameBox" Padding="10" Margin="0,0,0,10" Background="#282A36" Foreground="Black" ToolTip="Подразделение заказчик" />
+
+            <!--<Label Content="Дополнительный номер телефона (необязателен)"   Foreground="#2C3E50" />
+            <TextBox x:Name="PhoneBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black"/>-->
+
+            <Label Content="Примечание"   Foreground="#2C3E50" />
+            <TextBox x:Name="NoteBox" Margin="0,0,0,20" Height="60" TextWrapping="Wrap" AcceptsReturn="True" Background="#ECF0F1" Foreground="Black" ToolTip="Дополнительные сведения" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button Content="Добавить" Width="120" Margin="10,0" Background="#27AE60" Foreground="White" Click="AddButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Content="Отмена" Width="120" Margin="10,0" Background="#7F8C8D" Foreground="White" Click="CancelButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

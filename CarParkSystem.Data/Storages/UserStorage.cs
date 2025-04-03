@@ -1,10 +1,11 @@
-﻿using CarParkSystem.Domain.Models;
+﻿using CarParkSystem.App.Interfaces;
+using CarParkSystem.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace CarParkSystem.Data.Storages
 {
-    class UserStorage
+    public class UserStorage : IUserStorage
     {
         private readonly CarParkSystemDbContext _carParkSystemDbContext;
 
@@ -53,6 +54,9 @@ namespace CarParkSystem.Data.Storages
 
             if (user != null)
             {
+                user.Surname = newUser.Surname;
+                user.Name = newUser.Name;
+                user.Status = newUser.Status;
                 user.Username = newUser.Username;
                 user.PasswordHash = newUser.PasswordHash;
                 user.Role = newUser.Role;

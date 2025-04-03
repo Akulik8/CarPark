@@ -1,0 +1,46 @@
+﻿<Window x:Class="CarParkSystem.WPF.CreateSubdivisionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Автопарк - Добавление подразделения" Height="600" Width="600" WindowStartupLocation="CenterOwner"
+        ResizeMode="CanResize"  Background="#2C3E50"
+        Icon="C:\Users\akuli\Downloads\pngwing.com (1).png">
+    <Viewbox Stretch="Uniform">
+        <Grid Width="600" Height="600" >
+            <Border Background="White" Padding="20" CornerRadius="10" Margin="30">
+                <StackPanel>
+                    <TextBlock Text="Добавить подразделение" FontSize="22" FontWeight="Bold" Margin="0,50,0,50" HorizontalAlignment="Center"  Foreground="#2C3E50" />
+
+                    <Label Content="Название"    Foreground="#2C3E50" />
+                    <TextBox x:Name="NameBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black" ToolTip="Название подразделения" />
+
+                    <Label Content="Адрес"   Foreground="#2C3E50" />
+                    <TextBox x:Name="AddressBox" Margin="0,0,0,10" Background="#ECF0F1" Foreground="Black" ToolTip="Адрес" />
+
+                    <Label Content="Телефон"   Foreground="#2C3E50" />
+                    <TextBox x:Name="PhoneNumberBox" Margin="0,0,0,50" Background="#ECF0F1" Foreground="Black" ToolTip="Номер телефона" />
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                        <Button Content="Добавить" Width="120" Margin="10,0" Background="#27AE60" Foreground="White" Click="AddButton_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderThickness="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Button Content="Отмена" Width="120" Margin="10,0" Background="#7F8C8D" Foreground="White" Click="CancelButton_Click">
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderThickness="0">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Viewbox>
+</Window>
