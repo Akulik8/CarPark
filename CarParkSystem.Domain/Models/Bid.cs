@@ -17,9 +17,11 @@ namespace CarParkSystem.Domain.Models
         public string From { get; set; }
         public string To { get; set; }
         public string Note { get; set; }
-        public string Phone { get; set; }
         public string Status { get; set; }
-        public string Сustomer { get; set; }
-        public Guid ManagerID { get; set; }
+        public Guid SubdivisionID { get; set; }
+        public Guid UserID { get; set; }
+
+        public Subdivision Subdivision { get; set; }
+        public User User { get; set; }
     }
 }

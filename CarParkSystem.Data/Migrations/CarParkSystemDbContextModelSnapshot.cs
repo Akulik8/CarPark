@@ -22,367 +22,84 @@ namespace CarParkSystem.Data.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Accident", b =>
+            modelBuilder.Entity("CarParkSystem.Domain.Models.Bid", b =>
                 {
-                    b.Property<Guid>("AccidentID")
+                    b.Property<Guid>("BidID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("AccidentDate")
+                    b.Property<string>("Cargo")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("DeliveryDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("AccidentDetails")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<float>("DamageCost")
-                        .HasColumnType("real");
-
-                    b.Property<Guid>("DriverID")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("AccidentID");
-
-                    b.HasIndex("DriverID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("Accidents");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Alert", b =>
-                {
-                    b.Property<Guid>("AlertID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("AlertType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("DueDate")
+                    b.Property<DateTime>("DoDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<bool>("IsRead")
-                        .HasColumnType("boolean");
+                    b.Property<string>("From")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("VehicleID")
+                    b.Property<Guid>("SubdivisionID")
                         .HasColumnType("uuid");
 
-                    b.HasKey("AlertID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("Alerts");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Document", b =>
-                {
-                    b.Property<Guid>("DocumentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("DocumentType")
+                    b.Property<string>("To")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateOnly>("ExpiryDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateOnly>("IssueDate")
-                        .HasColumnType("date");
-
-                    b.Property<Guid>("VehicleID")
+                    b.Property<Guid>("UserID")
                         .HasColumnType("uuid");
 
-                    b.HasKey("DocumentID");
+                    b.Property<double>("Volume")
+                        .HasColumnType("double precision");
 
-                    b.HasIndex("VehicleID");
+                    b.Property<double>("Weight")
+                        .HasColumnType("double precision");
 
-                    b.ToTable("Documents");
+                    b.HasKey("BidID");
+
+                    b.HasIndex("SubdivisionID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Bids");
                 });
 
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Driver", b =>
+            modelBuilder.Entity("CarParkSystem.Domain.Models.Subdivision", b =>
                 {
-                    b.Property<Guid>("DriverID")
+                    b.Property<Guid>("SubdivisionID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("date");
-
-                    b.Property<DateOnly>("EmploymentDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<string>("LicenseCategory")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("character varying(10)");
-
-                    b.Property<string>("LicenseNumber")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                        .HasColumnType("text");
 
-                    b.HasKey("DriverID");
-
-                    b.ToTable("Drivers");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Expense", b =>
-                {
-                    b.Property<Guid>("ExpenseID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<float>("Amount")
-                        .HasColumnType("real");
-
-                    b.Property<string>("Description")
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ExpenseDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.HasKey("SubdivisionID");
 
-                    b.Property<string>("ExpenseType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("ExpenseID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("Expenses");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.FuelRecord", b =>
-                {
-                    b.Property<Guid>("FuelRecordID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<float>("FuelAmount")
-                        .HasColumnType("real");
-
-                    b.Property<float>("FuelPrice")
-                        .HasColumnType("real");
-
-                    b.Property<string>("FuelStation")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("FuelRecordID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("FuelRecords");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Insurance", b =>
-                {
-                    b.Property<Guid>("InsuranceID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateOnly>("EndDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("InsuranceCompany")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<float>("InsuranceCost")
-                        .HasColumnType("real");
-
-                    b.Property<string>("PolicyNumber")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateOnly>("StartDate")
-                        .HasColumnType("date");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("InsuranceID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("Insurances");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Maintenance", b =>
-                {
-                    b.Property<Guid>("MaintenanceID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<float>("Cost")
-                        .HasColumnType("real");
-
-                    b.Property<string>("ServiceCenter")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("ServiceDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ServiceType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("MaintenanceID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("MaintenanceRecords");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Repair", b =>
-                {
-                    b.Property<Guid>("RepairID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("ProblemDescription")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("RepairCenter")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<float>("RepairCost")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime>("RepairDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("RepairDetails")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("RepairID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("Repairs");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Route", b =>
-                {
-                    b.Property<Guid>("RouteID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<float>("Distance")
-                        .HasColumnType("real");
-
-                    b.Property<string>("EndPoint")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<string>("StartPoint")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
-
-                    b.Property<Guid>("TripID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("RouteID");
-
-                    b.HasIndex("TripID");
-
-                    b.ToTable("Routes");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Trip", b =>
-                {
-                    b.Property<Guid>("TripID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("DriverID")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime?>("EndTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<float?>("FuelUsed")
-                        .HasColumnType("real");
-
-                    b.Property<int?>("MileageAtEnd")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MileageAtStart")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("TripID");
-
-                    b.HasIndex("DriverID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("Trips");
+                    b.ToTable("Subdivisions");
                 });
 
             modelBuilder.Entity("CarParkSystem.Domain.Models.User", b =>
@@ -394,364 +111,62 @@ namespace CarParkSystem.Data.Migrations
                     b.Property<DateTime>("LastLogin")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Role")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.HasKey("UserID");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Vehicle", b =>
+            modelBuilder.Entity("CarParkSystem.Domain.Models.Bid", b =>
                 {
-                    b.Property<Guid>("VehicleID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("Capacity")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<double>("FuelConsumption")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("FuelType")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("character varying(30)");
-
-                    b.Property<string>("LicensePlate")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
-                    b.Property<string>("Make")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<int>("Mass")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MaxMass")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("Mileage")
-                        .HasColumnType("double precision");
-
-                    b.Property<string>("Model")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<int>("NumberOfSeats")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("character varying(30)");
-
-                    b.Property<string>("VIN")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.Property<string>("VehicleCategory")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("VehicleType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("Year")
-                        .HasColumnType("integer");
-
-                    b.HasKey("VehicleID");
-
-                    b.ToTable("Vehicles");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Violation", b =>
-                {
-                    b.Property<Guid>("ViolationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("DriverID")
-                        .HasColumnType("uuid");
-
-                    b.Property<float>("FineAmount")
-                        .HasColumnType("real");
-
-                    b.Property<bool>("Paid")
-                        .HasColumnType("boolean");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("ViolationDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("ViolationType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("ViolationID");
-
-                    b.HasIndex("DriverID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("Violations");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.WorkShift", b =>
-                {
-                    b.Property<Guid>("ShiftID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("DriverID")
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("VehicleID")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("ShiftID");
-
-                    b.HasIndex("DriverID");
-
-                    b.HasIndex("VehicleID");
-
-                    b.ToTable("WorkShifts");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Accident", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Driver", "Driver")
-                        .WithMany("Accidents")
-                        .HasForeignKey("DriverID")
+                    b.HasOne("CarParkSystem.Domain.Models.Subdivision", "Subdivision")
+                        .WithMany("Bids")
+                        .HasForeignKey("SubdivisionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Accidents")
-                        .HasForeignKey("VehicleID")
+                    b.HasOne("CarParkSystem.Domain.Models.User", "User")
+                        .WithMany("Bids")
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Driver");
+                    b.Navigation("Subdivision");
 
-                    b.Navigation("Vehicle");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Alert", b =>
+            modelBuilder.Entity("CarParkSystem.Domain.Models.Subdivision", b =>
                 {
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Alerts")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
+                    b.Navigation("Bids");
                 });
 
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Document", b =>
+            modelBuilder.Entity("CarParkSystem.Domain.Models.User", b =>
                 {
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Documents")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Expense", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Expenses")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.FuelRecord", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("FuelRecords")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Insurance", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Insurances")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Maintenance", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Maintenances")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Repair", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Repairs")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Route", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Trip", "Trip")
-                        .WithMany("Routes")
-                        .HasForeignKey("TripID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Trip");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Trip", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Driver", "Driver")
-                        .WithMany("Trips")
-                        .HasForeignKey("DriverID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Trips")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Driver");
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Violation", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Driver", "Driver")
-                        .WithMany("Violations")
-                        .HasForeignKey("DriverID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("Violations")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Driver");
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.WorkShift", b =>
-                {
-                    b.HasOne("CarParkSystem.Domain.Models.Driver", "Driver")
-                        .WithMany("WorkShifts")
-                        .HasForeignKey("DriverID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CarParkSystem.Domain.Models.Vehicle", "Vehicle")
-                        .WithMany("WorkShifts")
-                        .HasForeignKey("VehicleID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Driver");
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Driver", b =>
-                {
-                    b.Navigation("Accidents");
-
-                    b.Navigation("Trips");
-
-                    b.Navigation("Violations");
-
-                    b.Navigation("WorkShifts");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Trip", b =>
-                {
-                    b.Navigation("Routes");
-                });
-
-            modelBuilder.Entity("CarParkSystem.Domain.Models.Vehicle", b =>
-                {
-                    b.Navigation("Accidents");
-
-                    b.Navigation("Alerts");
-
-                    b.Navigation("Documents");
-
-                    b.Navigation("Expenses");
-
-                    b.Navigation("FuelRecords");
-
-                    b.Navigation("Insurances");
-
-                    b.Navigation("Maintenances");
-
-                    b.Navigation("Repairs");
-
-                    b.Navigation("Trips");
-
-                    b.Navigation("Violations");
-
-                    b.Navigation("WorkShifts");
+                    b.Navigation("Bids");
                 });
 #pragma warning restore 612, 618
         }
